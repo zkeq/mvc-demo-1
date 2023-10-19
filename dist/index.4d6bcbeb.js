@@ -588,6 +588,20 @@ var _app1Css = require("./app1.css");
 var _jquery = require("jquery");
 var _jqueryDefault = parcelHelpers.interopDefault(_jquery);
 // 使用 import 引入 jqu
+const html = `
+    <section id="app1">
+        <div class="output">
+            <span id="number">100</span>
+        </div>
+        <div class="actions">
+            <button id="add1">+1</button>
+            <button id="minus1">-2</button>
+            <button id="mul2">*2</button>
+            <button id="divide2">\u{2797}2</button>
+        </div>
+    </section>
+`;
+const $element = (0, _jqueryDefault.default)(html).appendTo((0, _jqueryDefault.default)("body>.page"));
 const $button1 = (0, _jqueryDefault.default)("#add1");
 const $button2 = (0, _jqueryDefault.default)("#minus1");
 const $button3 = (0, _jqueryDefault.default)("#mul2");
@@ -7356,6 +7370,19 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _app2Css = require("./app2.css");
 var _jquery = require("jquery");
 var _jqueryDefault = parcelHelpers.interopDefault(_jquery);
+const html = `
+    <section id="app2">
+        <ol class="tab-bar">
+            <li>1</li>
+            <li>2</li>
+        </ol>
+        <ol class="tab-content">
+            <li>\u{5185}\u{5BB9}1</li>
+            <li>\u{5185}\u{5BB9}2</li>
+        </ol>
+    </section>
+`;
+const $element = (0, _jqueryDefault.default)(html).appendTo((0, _jqueryDefault.default)("body>.page"));
 const $tabBar = (0, _jqueryDefault.default)("#app2 .tab-bar");
 const $tabContent = (0, _jqueryDefault.default)("#app2 .tab-content");
 const localkey = "app2.index";
@@ -7374,6 +7401,12 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _jquery = require("jquery");
 var _jqueryDefault = parcelHelpers.interopDefault(_jquery);
 var _app3Css = require("./app3.css");
+const html = `
+    <section id="app3">
+        <div id="square"></div>
+    </section>
+`;
+const $element = (0, _jqueryDefault.default)(html).appendTo((0, _jqueryDefault.default)("body>.page"));
 const $square = (0, _jqueryDefault.default)("#app3 #square");
 const localkey = "app3.active";
 // yes no undefined
@@ -7400,6 +7433,12 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _jquery = require("jquery");
 var _jqueryDefault = parcelHelpers.interopDefault(_jquery);
 var _app4Css = require("./app4.css");
+const html = `
+    <section id="app4">
+        <div class="circle"></div>
+    </section>
+`;
+const $element = (0, _jqueryDefault.default)(html).appendTo((0, _jqueryDefault.default)("body>.page"));
 const $circle = (0, _jqueryDefault.default)("#app4 .circle");
 $circle.on("mouseenter", ()=>{
     $circle.addClass("active");
