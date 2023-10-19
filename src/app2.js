@@ -3,6 +3,8 @@ import $ from "jquery";
 
 const $tabBar = $("#app2 .tab-bar");
 const $tabContent = $("#app2 .tab-content")
+const localkey = "app2.index"
+const index = localStorage.getItem(localkey) || 0
 
 $tabBar.on("click", "li", (e) => {
     const $li = $(e.currentTarget);
@@ -12,6 +14,7 @@ $tabBar.on("click", "li", (e) => {
         .removeClass("selected")
 
     const index = $li.index();
+    localStorage.setItem(localkey, index)
     $tabContent
         .children()
         .eq(index)
@@ -20,4 +23,4 @@ $tabBar.on("click", "li", (e) => {
         .removeClass("active")
 })
 
-$tabBar.children().eq(0).trigger("click")
+$tabBar.children().eq(index).trigger("click")

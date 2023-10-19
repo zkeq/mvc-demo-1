@@ -7358,13 +7358,16 @@ var _jquery = require("jquery");
 var _jqueryDefault = parcelHelpers.interopDefault(_jquery);
 const $tabBar = (0, _jqueryDefault.default)("#app2 .tab-bar");
 const $tabContent = (0, _jqueryDefault.default)("#app2 .tab-content");
+const localkey = "app2.index";
+const index = localStorage.getItem(localkey) || 0;
 $tabBar.on("click", "li", (e)=>{
     const $li = (0, _jqueryDefault.default)(e.currentTarget);
     $li.addClass("selected").siblings().removeClass("selected");
     const index = $li.index();
+    localStorage.setItem(localkey, index);
     $tabContent.children().eq(index).addClass("active").siblings().removeClass("active");
 });
-$tabBar.children().eq(0).trigger("click");
+$tabBar.children().eq(index).trigger("click");
 
 },{"jquery":"hgMhh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./app2.css":"8RnuD"}],"8RnuD":[function() {},{}],"264pe":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
@@ -7372,8 +7375,24 @@ var _jquery = require("jquery");
 var _jqueryDefault = parcelHelpers.interopDefault(_jquery);
 var _app3Css = require("./app3.css");
 const $square = (0, _jqueryDefault.default)("#app3 #square");
+const localkey = "app3.active";
+// yes no undefined
+const active = localStorage.getItem(localkey) === "yes";
+// if (active) {
+//     $square.addClass("active")
+// }else{
+//     $square.removeClass("active")
+// }
+$square.toggleClass("active", active);
 $square.on("click", ()=>{
-    $square.toggleClass("active");
+    if ($square.hasClass("active")) {
+        $square.removeClass("active");
+        localStorage.setItem(localkey, "no");
+    } else {
+        $square.addClass("active");
+        localStorage.setItem(localkey, "yes");
+    }
+// $square.toggleClass("active");
 });
 
 },{"jquery":"hgMhh","./app3.css":"iOgrn","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iOgrn":[function() {},{}],"6ZENx":[function(require,module,exports) {
@@ -7388,6 +7407,6 @@ $circle.on("mouseenter", ()=>{
     $circle.removeClass("active");
 });
 
-},{"jquery":"hgMhh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./app4.css":"jZ1KW"}],"jZ1KW":[function() {},{}]},["3zq8u","gLLPy"], "gLLPy", "parcelRequire94c2")
+},{"jquery":"hgMhh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./app4.css":"jZ1KW"}],"jZ1KW":[function() {},{}]},["3zq8u","gLLPy"], "gLLPy", "parcelRequire336d")
 
 //# sourceMappingURL=index.4d6bcbeb.js.map
